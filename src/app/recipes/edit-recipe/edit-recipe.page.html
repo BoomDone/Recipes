@@ -1,0 +1,99 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/recipes"></ion-back-button>
+      </ion-buttons>
+      <ion-title>{{ loadedRecipe.title }}</ion-title>
+      <ion-buttons slot="primary">
+        <ion-button>
+          Save
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content padding>
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      <ion-item>
+          <ion-label position="floating">Title</ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-item>
+          <ion-label position="floating">Ingredient</ion-label>
+          <ion-input></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col>
+        <ion-item>
+            <ion-label position="floating">Amount</ion-label>
+            <ion-input></ion-input>
+        </ion-item>
+    </ion-col>
+    <ion-col>
+          <ion-item>
+              <ion-label position="floating">unit</ion-label>
+              <ion-select value="cups" interface="popover">
+                  <ion-select-option value="cups">Cups</ion-select-option>
+                  <ion-select-option value="tablespoons">Tablespoons</ion-select-option>
+                  <ion-select-option value="teaspons">Teaspoons</ion-select-option>
+                  <ion-select-option value="ounces">Ounces</ion-select-option>
+                  <ion-select-option value="na">n/a</ion-select-option>
+                </ion-select> 
+            </ion-item>
+      </ion-col>
+  </ion-row>
+  <ion-row>
+      <ion-col>
+          <ion-item lines="none">
+              <ion-button (click)="addIngredient()"  style="width: 100%;" fill="outline" >Add</ion-button>         
+          </ion-item>
+      </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+        <ion-item *ngFor="let ingredient of loadedRecipe.ingredients " lines="none"> 
+            <ion-chip color="secondary">
+                <ion-label>{{ingredient.name}}</ion-label>
+                <span>{{ingredient.amount}}</span>
+                <ion-icon name="close-circle" (click)="deleteIngredient()"></ion-icon>
+              </ion-chip>
+        </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+      <ion-col>
+          <ion-item>
+              <ion-label position="floating">Steps</ion-label>
+              <ion-input></ion-input>
+              <ion-button class="inline-button-alignment" fill="outline" (click)="addStep()" 
+                          slot="end">Add</ion-button>
+            </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col>
+            <ion-item *ngFor="let step of loadedRecipe.steps; let i = index" lines="none"> 
+                <ion-chip color="tertiary">
+                    <ion-label>{{i+1}}. {{step}}</ion-label>
+                    <ion-icon name="close-circle" (click)="deleteStep()"></ion-icon>
+                  </ion-chip>
+            </ion-item>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+          <ion-item>
+            <ion-label position="floating">Images</ion-label>
+            <ion-input></ion-input>
+            <ion-button class="inline-button-alignment" fill="outline" slot="end">Upload</ion-button>
+          </ion-item>
+      </ion-col>
+    </ion-row>
+</ion-grid>
+</ion-content>

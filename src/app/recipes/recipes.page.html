@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color="primary"> 
+    <ion-title>Recipes</ion-title>
+    <ion-buttons slot="primary">
+        <ion-button (click)="addRecipe()">
+          <ion-icon name="add" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-searchbar [formControl]="searchControl"  (ionChange)="onSearchInput()"></ion-searchbar>
+
+    <div *ngIf="searching" class="spinner-container">
+        <ion-spinner  name="lines" color="primary"></ion-spinner>
+    </div>
+  <ion-list *ngIf="getApps() && getApps().length > 0 && !searching">
+      <ion-list-header>
+          <ion-label>Appetizer</ion-label>
+      </ion-list-header>
+      <app-recipe-item *ngFor="let recipe of getApps()"
+        [recipeItem]="recipe"></app-recipe-item>
+    </ion-list>
+  <ion-list *ngIf="getDinners() && getDinners().length > 0 && !searching">
+    <ion-list-header>
+        <ion-label>Dinner</ion-label>
+    </ion-list-header>
+    <app-recipe-item *ngFor="let recipe of getDinners()"
+      [recipeItem]="recipe"></app-recipe-item>
+  </ion-list>
+  <ion-list *ngIf="getDesserts() && getDesserts().length > 0 && !searching">
+    <ion-list-header>
+        <ion-label>Dessert</ion-label>
+    </ion-list-header>
+    <app-recipe-item *ngFor="let recipe of getDesserts()"
+     [recipeItem]="recipe"></app-recipe-item>
+  </ion-list>
+  <ion-list *ngIf="getDrinks() && getDrinks().length > 0 && !searching">
+      <ion-list-header>
+          <ion-label>Drink</ion-label>
+      </ion-list-header>
+      <app-recipe-item *ngFor="let recipe of getDrinks()"
+        [recipeItem]="recipe"></app-recipe-item>
+    </ion-list>
+</ion-content>

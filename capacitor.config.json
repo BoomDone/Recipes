@@ -1,0 +1,6 @@
+{
+  "appId": "com.kristen.myapp",
+  "appName": "my-app",
+  "bundledWebRuntime": false,
+  "webDir": "www"
+}
