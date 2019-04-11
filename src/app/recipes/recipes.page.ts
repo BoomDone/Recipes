@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Recipe, FoodKind } from './recipe.model';
+import { Recipe } from './recipe.model';
 import { RecipesService } from './recipes.service';
 import { FormControl } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';

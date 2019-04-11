@@ -12,7 +12,7 @@ export class EditRecipePage implements OnInit {
   loadedRecipe: Recipe;
 
   constructor(private activatedRoute: ActivatedRoute,
-    private recipesService: RecipesService,
+              private recipesService: RecipesService,
               private router: Router,) { }
 
   ngOnInit() {
