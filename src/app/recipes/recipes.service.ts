@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Recipe, FoodKind } from './recipe.model';
-import { _ } from 'underscore';
+import { sortBy } from 'underscore';
 
 @Injectable({
   providedIn: 'root'
@@ -105,7 +105,7 @@ export class RecipesService {
  }
 
  getRecipeType(type: FoodKind) {
-   return  _.sortBy(this.recipes.filter(recipe => recipe.type === type), 'title')
+   return  sortBy(this.recipes.filter(recipe => recipe.type === type), 'title')
 
  }
 }
