@@ -10,7 +10,7 @@ import { Recipe } from '../recipe.model';
 describe('RecipeDetailPage', () => {
   let component: RecipeDetailPage;
   let fixture: ComponentFixture<RecipeDetailPage>;
-  let recipe: Recipe = {
+  const recipe: Recipe = {
     id: 'r1',
     title: 'Cherry Pie',
     images: ['assets/images/cherry_pie.jpg',
@@ -21,16 +21,16 @@ describe('RecipeDetailPage', () => {
     type: 'Dessert',
     steps: ['Place Cherries in bowl', 'Preheat over to 375 degrees']
   };
-  
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [],
-      providers: [ 
+      providers: [
         {
             provide: ActivatedRoute,
             useValue: {
                 paramMap: of({id: 123})
-            } 
+            }
         },
         {
             provide: Router,

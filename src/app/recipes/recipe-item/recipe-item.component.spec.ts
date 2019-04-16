@@ -24,7 +24,7 @@ class TestComponentWrapper {
 describe('RecipeItemPage', () => {
   let component: RecipeItemComponent;
   let fixture: ComponentFixture<TestComponentWrapper>;
-    
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ TestComponentWrapper, RecipeItemComponent ],

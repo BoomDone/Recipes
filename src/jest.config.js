@@ -6,5 +6,5 @@ module.exports = {
             "<rootDir>/node_modules/(?!@ionic-native|@ionic|ionicons)",
     ],
     coverageReporters: ['text', 'html'],
-    coverageDirectory: '<rootDir>'
+    coverageDirectory: '<rootDir>/coverage'
 }

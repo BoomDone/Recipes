@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router} from '@angular/router';
 import { RecipesService } from '../recipes.service';
 import { Recipe } from '../recipe.model';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-recipe',
@@ -13,13 +14,12 @@ export class EditRecipePage implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute,
               private recipesService: RecipesService,
-              private router: Router,) { }
+              private router: Router) { }
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe(paramMap => {
       if (!paramMap.has('recipeId')) {
-        // redirect user here leaves page
-        this.router.navigate(['/recipes'])
+        this.router.navigate(['/recipes']);
         return;
       }
       const recipeId = paramMap.get('recipeId');
@@ -28,18 +28,18 @@ export class EditRecipePage implements OnInit {
   }
 
   deleteIngredient() {
-    console.log(' TODO delete ingredient')
+    console.log(' TODO delete ingredient');
   }
 
   deleteStep() {
-    console.log(' TODO delete step')
+    console.log(' TODO delete step');
   }
 
   addStep() {
-    console.log(' TODO add step')
+    console.log(' TODO add step');
   }
 
   addIngredient() {
-    console.log(' TODO add Ingredient')
+    console.log(' TODO add Ingredient');
   }
 }

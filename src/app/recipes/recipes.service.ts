@@ -105,7 +105,7 @@ export class RecipesService {
  }
 
  getRecipeType(type: FoodKind) {
-   return sortBy(this.recipes.filter(recipe => recipe.type === type), 'title')
+   return sortBy(this.recipes.filter(recipe => recipe.type === type), 'title');
 
  }
 }

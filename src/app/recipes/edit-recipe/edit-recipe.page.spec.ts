@@ -5,11 +5,12 @@ import { EditRecipePage } from './edit-recipe.page';
 import { ActivatedRoute, Router } from '@angular/router';
 import { of} from 'rxjs';
 import { Recipe } from '../recipe.model';
+import { continueStatement } from '@babel/types';
 
 describe('EditRecipePage', () => {
   let component: EditRecipePage;
   let fixture: ComponentFixture<EditRecipePage>;
-  let recipe: Recipe = {
+  const recipe: Recipe = {
     id: 'r1',
     title: 'Cherry Pie',
     images: ['assets/images/cherry_pie.jpg',

@@ -14,13 +14,13 @@ export class RecipesPage implements OnInit, OnDestroy {
   recipes: Recipe[];
   searchControl: FormControl;
   searching: boolean = false;
-  constructor(private recipesService: RecipesService,) { 
+  constructor(private recipesService: RecipesService) {
     this.searchControl = new FormControl();
 
   }
 
   ngOnInit() {
-    console.log('ngOnInit')
+    console.log('ngOnInit');
 
     this.recipes = this.recipesService.getAllRecipes();
     this.setFilteredItems('');
@@ -33,15 +33,15 @@ export class RecipesPage implements OnInit, OnDestroy {
       });
   }
   ionViewWillEnter() {
-    console.log('ionViewWillEnter')
+    console.log('ionViewWillEnter');
   }
 
-  onSearchInput(): void{
+  onSearchInput(): void {
     this.searching = true;
   }
 
   getDesserts(): Recipe[] {
-    return sortBy(this.recipes.filter(recipe => recipe.type === 'Dessert'), 'title')
+    return sortBy(this.recipes.filter(recipe => recipe.type === 'Dessert'), 'title');
   }
   getDinners(): Recipe[] {
     return sortBy(this.recipes.filter(recipe => recipe.type === 'Dinner'), 'title');
@@ -55,16 +55,16 @@ export class RecipesPage implements OnInit, OnDestroy {
     return sortBy(this.recipes.filter(recipe => recipe.type === 'Drink'), 'title');
   }
 
-  setFilteredItems(searchTerm): void { 
+  setFilteredItems(searchTerm): void {
     this.recipes = this.recipesService.filterItems(searchTerm);
   }
 
   addRecipe(): void {
-    console.log(' TODO add recipe')
+    console.log(' TODO add recipe');
   }
 
-  //Testing out ionic lifecycle events
-  //TODO Remove this after testing
+  // Testing out ionic lifecycle events
+  // TODO Remove this after testing
   // ionViewDidEnter() {
   //   console.log('!! ionViewDidEnter')
   // }
@@ -76,8 +76,8 @@ export class RecipesPage implements OnInit, OnDestroy {
   // ionViewDidLeave() {
   //   console.log('!!! ionViewDidLeave')
   // }
-  
+
   ngOnDestroy() {
-    console.log('!!! on destroy')
+    console.log('!!! on destroy');
   }
 }

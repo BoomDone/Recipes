@@ -14,16 +14,16 @@ export class RecipeDetailPage implements OnInit {
   constructor(private activatedRoute: ActivatedRoute,
               private recipesService: RecipesService,
               private router: Router,
-              private alertCtrl: AlertController) { 
+              private alertCtrl: AlertController) {
 
               }
 
   ngOnInit() {
-    console.log('!! ngoninit')
+    console.log('!! ngoninit');
     this.activatedRoute.paramMap.subscribe(paramMap => {
       if (!paramMap.has('recipeId')) {
         // redirect user here leaves page
-        this.router.navigate(['/recipes'])
+        this.router.navigate(['/recipes']);
         return;
       }
       const recipeId = paramMap.get('recipeId');
@@ -33,7 +33,7 @@ export class RecipeDetailPage implements OnInit {
 
   onDeleteRecipe() {
     this.alertCtrl.create({header: 'Are you sure? ',
-        message: 'Do you really want to delete?', 
+        message: 'Do you really want to delete?',
         buttons: [{
           text: 'Cancel',
           role: 'cancel'
@@ -42,37 +42,15 @@ export class RecipeDetailPage implements OnInit {
           text: 'Delete',
           handler: () => {
             this.recipesService.deleteRecipe(this.loadedRecipe.id);
-            this.router.navigate(['/recipes'])
+            this.router.navigate(['/recipes']);
           }
         }
       ]}).then(alterEl => {
         alterEl.present();
-      })
+      });
   }
 
   onEditRecipe() {
     this.router.navigate([`/recipes/${this.loadedRecipe.id}/edit`]);
-
-    console.log('!!! do somethign on edit')
-  }
-  ionViewWillEnter() {
-    console.log('ionViewWillEnter')
-  }
-
-  ionViewDidEnter() {
-    console.log('!! ionViewDidEnter')
-  }
-
-  ionViewWillLeave() {
-    console.log('!!! ionViewWillLeave')
-  }
-
-  ionViewDidLeave() {
-    console.log('!!! ionViewDidLeave')
-
-  }
-  
-  ngOnDestroy() {
-    console.log('!!! on destroy')
   }
  }

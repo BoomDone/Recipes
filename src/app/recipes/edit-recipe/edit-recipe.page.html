@@ -38,11 +38,11 @@
     <ion-col>
           <ion-item>
               <ion-label position="floating">unit</ion-label>
-              <ion-select value="cups" interface="popover">
+              <ion-select value="" interface="popover">
                   <ion-select-option value="cups">Cups</ion-select-option>
-                  <ion-select-option value="tablespoons">Tablespoons</ion-select-option>
-                  <ion-select-option value="teaspons">Teaspoons</ion-select-option>
-                  <ion-select-option value="ounces">Ounces</ion-select-option>
+                  <ion-select-option value="tbsp">Tbsp</ion-select-option>
+                  <ion-select-option value="tsp">Tsp</ion-select-option>
+                  <ion-select-option value="oz">Oz</ion-select-option>
                   <ion-select-option value="na">n/a</ion-select-option>
                 </ion-select> 
             </ion-item>
@@ -58,9 +58,8 @@
   <ion-row>
     <ion-col>
         <ion-item *ngFor="let ingredient of loadedRecipe.ingredients " lines="none"> 
-            <ion-chip color="secondary">
-                <ion-label>{{ingredient.name}}</ion-label>
-                <span>{{ingredient.amount}}</span>
+            <ion-chip color="tertiary">
+                <ion-label>{{ingredient.amount}}: {{ingredient.name}}</ion-label>
                 <ion-icon name="close-circle" (click)="deleteIngredient()"></ion-icon>
               </ion-chip>
         </ion-item>
@@ -79,10 +78,8 @@
     <ion-row>
         <ion-col>
             <ion-item *ngFor="let step of loadedRecipe.steps; let i = index" lines="none"> 
-                <ion-chip color="tertiary">
-                    <ion-label>{{i+1}}. {{step}}</ion-label>
-                    <ion-icon name="close-circle" (click)="deleteStep()"></ion-icon>
-                  </ion-chip>
+              <span>{{i+1}}. {{step}}</span>
+              <ion-icon color="primary" name="close-circle" (click)="deleteStep()" slot="end"></ion-icon>
             </ion-item>
         </ion-col>
     </ion-row>

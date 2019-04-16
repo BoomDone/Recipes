@@ -11,13 +11,13 @@ const routes: Routes = [
       },
       {
         path: ':recipeId',
-        loadChildren: './recipes/recipe-detail/recipe-detail.module#RecipeDetailPageModule' 
+        loadChildren: './recipes/recipe-detail/recipe-detail.module#RecipeDetailPageModule'
       },
-      { path: ':recipeId/edit', 
-        loadChildren: './recipes/edit-recipe/edit-recipe.module#EditRecipePageModule' 
+      { path: ':recipeId/edit',
+        loadChildren: './recipes/edit-recipe/edit-recipe.module#EditRecipePageModule'
       },
 
-    ] 
+    ]
   },
 ];
 
